@@ -26,7 +26,7 @@ module.exports = React.createClass({
     SampleData.manUtdPlayersData().forEach(
       function (player) {
         fieldContent.push(
-          <Draggable bounds="parent">
+          <Draggable key={player.name} bounds="parent">
             <div id={player.position} className="draggable">
               <div id="circle">
                 <div id="small-circle">
