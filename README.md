@@ -65,6 +65,8 @@ npm run testing
 
 Try out the code on heroku:
 
+https://soccerlineup.herokuapp.com/
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 
