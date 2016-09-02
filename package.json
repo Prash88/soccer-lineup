@@ -13,7 +13,7 @@
     "testing": "karma start --single-run=false"
   },
   "repository": "git@github.com:cgreening/webpack-starter.git",
-  "author": "Chris Greening",
+  "author": "Prashanth Sampath Kumar",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.5.0",
