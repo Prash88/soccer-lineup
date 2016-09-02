@@ -63,4 +63,8 @@ npm run testing
 
 ## Deployed on Heroku
 
+Try out the code on heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 
