@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-present Facebook. All Rights Reserved.
+ * Copyright 2016-present Hokage. All Rights Reserved.
  *
  * @providesModule SampleData
  */

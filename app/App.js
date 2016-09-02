@@ -1,15 +1,18 @@
-var React = require('react');
+/**
+ * Copyright 2016-present Hokage. All Rights Reserved.
+ *
+ * @providesModule App
+ */
+'use strict';
 
-var Header = require('./Components/Header');
-var Content = require('./Components/Content');
-var Favicon = require('react-favicon');
+const React = require('react');
+const Header = require('./Components/Header');
+const Content = require('./Components/Content');
+const Favicon = require('react-favicon');
+const faviconUrl = require('./Assets/favicon.ico');
 
-var faviconUrl = require('./Assets/favicon.ico');
-
-module.exports = React.createClass({
-  displayName: 'App',
-
-  render: function () {
+class App extends React.Component {
+  render() {
     return (
       <div>
         <Header/>
@@ -18,5 +21,6 @@ module.exports = React.createClass({
       </div>
     );
   }
+}
 
-});
+module.exports = App;

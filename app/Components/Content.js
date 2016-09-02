@@ -1,51 +1,51 @@
+/**
+ * Copyright 2016-present Hokage. All Rights Reserved.
+ *
+ * @providesModule Content
+ */
+'use strict';
+
 const React = require('react');
 const Draggable = require('react-draggable');
 const DraggableCore = Draggable.DraggableCore;
 const SampleData = require('./SampleData');
 
-module.exports = React.createClass({
-  displayName: 'Content',
+class Content extends React.Component {
 
-  getInitialState: function() {
-  	return { serverData: null };
-  },
+  handleDrag(e, ui) {
+    //console.log(ui.x + ' ' + ui.y);
+  }
 
-  refreshData: function() {
-  	// replace this with your favourite library for doing ajax calls
-  	var xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/currentTime', true);
-    xhr.onload = () => {
-      var data = JSON.parse(xhr.responseText);
-      this.setState({ serverData: data.time });
-    };
-    xhr.send();
-  },
-
-  render: function () {
+  render() {
     const fieldContent = [];
-    SampleData.manUtdPlayersData().forEach(
-      function (player) {
-        fieldContent.push(
-          <Draggable key={player.name} bounds="parent">
-            <div id={player.position} className="draggable">
-              <div id="circle">
-                <div id="small-circle">
-                </div>
-                <div id="number">{player.position.toUpperCase()}</div>
+    const playersData = SampleData.manUtdPlayersData();
+    for (var i=0; i < playersData.length; i++) {
+      const player = playersData[i];
+      fieldContent.push(
+        <Draggable
+          key={player.name}
+          bounds="parent"
+          onDrag={(e, ui) => this.handleDrag(e, ui)}>
+          <div id={player.position} className="draggable">
+            <div id="circle">
+              <div id="small-circle">
               </div>
-              <div id="name">{player.name}</div>
+              <div id="number">{player.position.toUpperCase()}</div>
             </div>
-          </Draggable>
-        );
-      }
-    );
+            <div id="name">{player.name}</div>
+          </div>
+        </Draggable>
+      );
+    }
     return (
       <div id="container">
   			<div id="field">
           {fieldContent}
   			</div>
   		</div>
-	);
+	  );
   }
 
-});
+}
+
+module.exports = Content;
