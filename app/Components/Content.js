@@ -9,38 +9,60 @@ const React = require('react');
 const Draggable = require('react-draggable');
 const DraggableCore = Draggable.DraggableCore;
 const SampleData = require('./SampleData');
+const PlayerIcon = require('./PlayerIcon');
 
-class Content extends React.Component {
+type State = {
+};
 
-  handleDrag(e, ui) {
-    //console.log(ui.x + ' ' + ui.y);
+type Props = {
+};
+
+class Content extends React.Component<void, State, Props> {
+
+  state: State;
+  props: Props;
+
+  static propTypes = {
+  };
+
+  constructor() {
+    super();
+    this.state = {
+    };
   }
 
-  render() {
+  componentDidMount() {
+
+  }
+
+  componentWillMount() {
+
+  }
+
+  componentWillReceiveProps(nextProps: Props) {
+
+  }
+
+  getFieldContent() {
     const fieldContent = [];
     const playersData = SampleData.manUtdPlayersData();
     for (var i=0; i < playersData.length; i++) {
-      const player = playersData[i];
       fieldContent.push(
-        <Draggable
-          key={player.name}
-          bounds="parent"
-          onDrag={(e, ui) => this.handleDrag(e, ui)}>
-          <div id={player.position} className="draggable">
-            <div id="circle">
-              <div id="small-circle">
-              </div>
-              <div id="number">{player.position.toUpperCase()}</div>
-            </div>
-            <div id="name">{player.name}</div>
-          </div>
-        </Draggable>
+        <PlayerIcon
+          key={playersData[i].name}
+          name={playersData[i].name}
+          position={playersData[i].position}
+        />
       );
     }
+    return fieldContent;
+  }
+
+  render() {
     return (
       <div id="container">
-  			<div id="field">
-          {fieldContent}
+  			<div id="field" ref="field">
+          {this.getFieldContent()}
   			</div>
   		</div>
 	  );

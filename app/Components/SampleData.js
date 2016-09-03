@@ -5,6 +5,17 @@
  */
 'use strict';
 
+function singlePlayerData() {
+  return (
+    [
+      {
+        name: 'Z.Ibrahimovic',
+        position: 'fc',
+      }
+    ]
+  );
+}
+
 function manUtdPlayersData() {
   const players = [
     {
@@ -57,4 +68,5 @@ function manUtdPlayersData() {
 
 module.exports = {
   manUtdPlayersData,
+  singlePlayerData,
 };
