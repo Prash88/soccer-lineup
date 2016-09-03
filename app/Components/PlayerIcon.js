@@ -17,6 +17,9 @@ type State = {
 type Props = {
   name: string,
   position: string,
+  number: string,
+  fieldWidth: number,
+  fieldHeight: number,
 };
 
 class PlayerIcon extends React.Component<void, State, Props> {
@@ -24,6 +27,9 @@ class PlayerIcon extends React.Component<void, State, Props> {
   static propTypes = {
     name: React.PropTypes.string.isRequired,
     position: React.PropTypes.string.isRequired,
+    number: React.PropTypes.string.isRequired,
+    fieldWidth: React.PropTypes.number.isRequired,
+    fieldHeight: React.PropTypes.number.isRequired,
   };
 
   constructor() {
@@ -46,20 +52,17 @@ class PlayerIcon extends React.Component<void, State, Props> {
   }
 
   handleDrag(e, ui, name) {
-    //console.log(ui.y + ' ' + ui.x);
-    //let { clientHeight, clientWidth } = this.refs.field;
-    //console.log(clientHeight, clientWidth);
-    var rect = this.refs[name];
-    //console.log(rect.offsetTop, rect.offsetLeft);
-    //console.log(ui.y + rect.offsetTop, ui.x + rect.offsetLeft);
-    //242, 396
-    //80.5 ,66
-    /*console.log(
-      Math.ceil((ui.y + rect.offsetTop)/66) + ', ' +
-      Math.ceil((ui.x + rect.offsetLeft)/88.5)
-    );*/
-    const yRank = Math.ceil((ui.y + rect.offsetTop)/66);
-    const xRank = Math.ceil((ui.x + rect.offsetLeft)/88.5)
+    const verticalSplit = 3;
+    const horizontalSplit = 6;
+    const fieldHeight = this.props.fieldHeight - 30;
+    const fieldWidth = this.props.fieldWidth - 30;
+    const rect = this.refs[name];
+    const regionHeight = (fieldHeight / horizontalSplit);
+    const regionWidth = (fieldWidth / verticalSplit);
+    let yRank = (ui.y + rect.offsetTop) / regionHeight;
+    let xRank = (ui.x + rect.offsetLeft) / regionWidth;
+    yRank = Math.ceil(yRank);
+    xRank = Math.ceil(xRank);
     this.setState({
       draggableName: DragUtil.getPosition(xRank, yRank),
     });
@@ -68,7 +71,7 @@ class PlayerIcon extends React.Component<void, State, Props> {
   render() {
     const number = (this.state.draggableName !== '')
                     ? this.state.draggableName
-                    : this.props.position.toUpperCase();
+                    : this.props.number;
     return (
       <Draggable
         key={this.props.name}

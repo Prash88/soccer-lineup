@@ -46,12 +46,17 @@ class Content extends React.Component<void, State, Props> {
   getFieldContent() {
     const fieldContent = [];
     const playersData = SampleData.manUtdPlayersData();
+    const fieldHeight = 425;
+    const fieldWidth = 292;
     for (var i=0; i < playersData.length; i++) {
       fieldContent.push(
         <PlayerIcon
           key={playersData[i].name}
           name={playersData[i].name}
+          number={playersData[i].number}
           position={playersData[i].position}
+          fieldHeight={fieldHeight}
+          fieldWidth={fieldWidth}
         />
       );
     }
