@@ -9,6 +9,7 @@ const React = require('react');
 const Draggable = require('react-draggable');
 const DraggableCore = Draggable.DraggableCore;
 const DragUtil = require('./DragUtil');
+const SortableList = require('./SortableList');
 
 type State = {
   draggableName: string,
@@ -83,7 +84,7 @@ class PlayerIcon extends React.Component<void, State, Props> {
             </div>
             <div id="number">{number}</div>
           </div>
-          <div id="name">{this.props.name}</div>
+          <SortableList data={{items : [this.props.name, 'test']}} />
         </div>
       </Draggable>
     );

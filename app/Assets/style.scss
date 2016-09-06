@@ -51,7 +51,7 @@ body {
 
 .draggable {
 	cursor: move;
-	width: 50px;
+	width: 30px;
 	height: 30px;
 	flex-direction: column;
 	align-items: center;
@@ -63,13 +63,11 @@ body {
 }
 
 #circle {
-	margin-left: 10px;
-	margin-right: 10px;
 	flex-direction: column;
 	align-items: center;
 	align-self: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   background-color: white;
 	border-radius: 50%;
 	position: absolute;
@@ -100,48 +98,78 @@ body {
 }
 
 #name {
-	margin-top: 30px;
+	margin-top: 25px;
+	margin-left: -10px;
   font-weight:bold;
-	color: white;
+	color: black;
 	font-size: 8px;
 	text-align: center;
 	align-self: center;
 	align-items: center;
 	word-wrap: break-word;      /* IE */
+	background: white;
+	border-radius: 2px;
+	z-index:100;
+	width: 50px;
+	vertical-align: top;
+	//position: absolute;
+}
+
+#name1 {
+	margin-left: -10px;
+  font-weight:bold;
+	color: black;
+	font-size: 8px;
+	text-align: center;
+	align-self: center;
+	align-items: center;
+	word-wrap: break-word;      /* IE */
+	background: gray;
+	border-radius: 2px;
+	z-index:100;
+	width: 50px;
+	vertical-align: top;
+	//position: absolute;
+}
+
+#list {
+	vertical-align: top;
+	z-index:100;
+	position: absolute;
 }
 
 #gk {
-	left: 115px;
+	left: 130px;
 	top: 326px;
 	position: absolute;
 }
 
 #dl {
-	left: 30px;
+	left: 45px;
 	top: 260px;
 	position: absolute;
 }
 
 #dr {
-	left: 202px;
+	left: 217px;
 	top: 260px;
 	position: absolute;
 }
 
 #dcl {
-	left: 90px;
+	left: 105px;
 	top: 270px;
 	position: absolute;
 }
 
 #dcr {
-	left: 140px;
+	left: 155px;
 	top: 270px;
 	position: absolute;
 }
 
 #fc {
-	left: 115px;
+	left: 130px;
 	top: 40px;
 	position: absolute;
 	align-items: center;
@@ -150,31 +178,31 @@ body {
 }
 
 #amc {
-	left: 115px;
+	left: 130px;
 	top: 110px;
 	position: absolute;
 }
 
 #amr {
-	left: 202px;
+	left: 217px;
 	top: 110px;
 	position: absolute;
 }
 
 #aml {
-	left: 30px;
+	left: 45px;
 	top: 110px;
 	position: absolute;
 }
 
 #cml {
-	left: 90px;
+	left: 105px;
 	top: 180px;
 	position: absolute;
 }
 
 #cmr {
-	left: 140px;
+	left: 155px;
 	top: 180px;
 	position: absolute;
 }

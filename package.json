@@ -21,7 +21,8 @@
     "express": "^4.12.4",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-draggable": "^2.2.1"
+    "react-draggable": "^2.2.1",
+    "react-sortable": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
